@@ -1,5 +1,47 @@
+
+
+
+
+class Moto:
+    
+    def __init__(self, color : str, placa : str, marca : str, modelo : str, precio : str, año : str) -> None:
+    
+     self.color : str = color
+     self.placa : str = placa
+     self.marca : str = marca
+     self.modelo : str = modelo
+     self.precio : str = precio
+     self.año : str = año
+     self.estado = False
+
+    def informacion_de_la_moto(self):#metodo para imprimir la informacion de un moto
+        print("Color:",self.color)
+        print("Placa:",self.placa)
+        print("Marca:",self.marca)
+        print("Modelo:",self.modelo)
+        print("Precio: $",self.precio)
+        if(self.estado):
+            print("Estado: vendido")
+        else:
+            print("Estado: sin vender")
+
+    def vendermoto(self):
+        self.estado = True
+
+
+    def concesionario_moto(concesionario_moto):#metodo que recorre una lista de vehiculos e imprime la informacion de cada uno
+        print("")
+        for i in range(len(concesionario_moto)):
+            print("Vehiculo #",i+1)
+            concesionario_moto[i].informacion_de_la_moto()
+            print("--------------------") 
+
+
+
+
+
 class Vehiculo:
-    def _init_(self,color,placa,marca,modelo,precio):
+    def __init__(self,color,placa,marca,modelo,precio):
         self.color = color
         self.placa = placa
         self.marca = marca
@@ -7,7 +49,7 @@ class Vehiculo:
         self.precio = precio
         self.estado = False #esto guarda si esta vendido o no, al inicio no se encuentra vendido el auto, por tanto es false
 
-    def imprimirDatos(self):#metodo para imprimir la informacion de un vehiculo
+    def informacion_del_vehiculo(self):#metodo para imprimir la informacion de un vehiculo
         print("Color:",self.color)
         print("Placa:",self.placa)
         print("Marca:",self.marca)
@@ -28,53 +70,171 @@ class Vehiculo:
         self.estado = True
 
 
+class Usuario:
 
-def imprimirConcesionario(concesionario):#metodo que recorre una lista de vehiculos e imprime la informacion de cada uno
-    print("")
-    for i in range(len(concesionario)):
-        print("Vehiculo #",i+1)
-        concesionario[i].imprimirDatos()
-        print("--------------------") 
+    def __init__(self,nombre : str, cedula: str):
 
-
-
-def menu():
-    concesionario = []#el concesionario es una lista de vehiculos
-    opc = 1
-    while(opc != 0):
-        print("0. Salir")
-        print("1. Registrar vehiculo")
-        print("2. Listar vehiculos")
-        print("3. Vender vehiculo")
-        print("4. Editar informacion de un vehiculo")
+        self.nombre :str = nombre
+        self.cedula :str = cedula
+        pass
 
 
-        opc = int(input("Ingrese opcion: "))
-        if(opc == 1):
-            color = input("Ingrese color: ")
-            placa = input("Ingrese placa: ")
-            marca = input("Ingrese marca: ")
-            modelo = input("Ingrese modelo: ")
-            precio = input("Ingrese precio: ")
-            concesionario.append(Vehiculo(color,placa,marca,modelo,precio))
-        elif(opc == 2):
-            imprimirConcesionario(concesionario)
-        elif(opc == 3):
-            imprimirConcesionario(concesionario)
-            numero = int(input("Ingrese # del vehiculo que desea vender: "))
-            if(numero >= 1 and numero <= len(concesionario)):
-                concesionario[numero-1].venderVehiculo()
+class Piezas:
+
+    productos = {}
+
+    def __init__(self, tipo : str,pieza:str, precio: int):
+
+        self.tipo : str = tipo
+        self.pieza : str = pieza
+        self.precio : int = precio 
+        self.estado = False
+
+    def vender_piezas(self):
+        self.estado = True
+
+    def informacion_piezas(self):
+        
+        print("tipo:",self.tipo)
+        print("para:",self.pieza)
+        print("Precio: $",self.precio)
+        if(self.estado):
+            print("Estado: vendido")
+        else:
+            print("Estado: sin vender")
+
+                       
+class Agenadar_citas:
+
+    def __init__(self, usuario :Usuario, fecha : str, hora: str) -> None:
+       
+        self.usuario : Usuario = usuario
+        self.fecha : str = fecha
+        self.fecha : str = fecha
+        self.hora : str = hora
+        pass
+
+    
+class Test_drive:
+
+    def __init__(self,) -> Agenadar_citas:
+
+
+        pass
+        
+
+
+
+
+class Concesionario:
+
+
+    def catalogo_de_vehiculos(concesionario_vehiculo):#metodo que recorre una lista de vehiculos e imprime la informacion de cada uno
+        print("")
+        for i in range(len(concesionario_vehiculo)):
+            print("Vehiculo #",i+1)
+            concesionario_vehiculo[i].informacion_del_vehiculo()
+            print("--------------------")
+
+    def catalogo_de_la_moto(concesionario_moto):#metodo que recorre una lista de vehiculos e imprime la informacion de cada uno
+        print("")
+        for i in range(len(concesionario_moto)):
+            print("Moto #",i+1)
+            concesionario_moto[i].informacion_de_la_moto()
+            print("--------------------") 
+
+
+class Menu:
+
+    def menu():
+        concesionario_vehiculo = []#el concesionario es una lista de vehiculos
+    
+        Moto.concesionario_moto = []
+
+        piezas = [Piezas]
+    
+        opc = 1
+        while(opc != 0):
+            print("------------------------------------------------")
+            print()
+            print("--------Bienvenido a tu Moto Sport--------")
+            print()
+            print("0. Salir")
+            print("1. Registrar vehiculo")
+            print("2. catalogo vehiculos")
+            print("3. Vender vehiculo")
+            print("4. Editar informacion de un vehiculo")
+            print("5. registrar moto")
+            print("6. catalogo de motos ")
+            print("7. vender moto ")
+            
+
+
+            print()
+
+
+            opc = int(input("Ingrese opcion: "))
+            print()
+            if(opc == 1):
+                color = input("Ingrese color: ")
+                placa = input("Ingrese placa: ")
+                marca = input("Ingrese marca: ")
+                modelo = input("Ingrese modelo: ")
+                precio = input("Ingrese precio: ")
+                concesionario_vehiculo.append(Vehiculo(color,placa,marca,modelo,precio))
+            elif(opc == 2):
+                Concesionario.catalogo_de_vehiculos(concesionario_vehiculo)
+            elif(opc == 3):
+                Concesionario.catalogo_de_vehiculos(concesionario_vehiculo)
+                numero = int(input("Ingrese # del vehiculo que desea vender: "))
+                if(numero >= 1 and numero <= len(concesionario_vehiculo)):
+                    concesionario_vehiculo[numero-1].venderVehiculo()
+                else:
+                    print("Ingrese # de vehiculo valido!")
+            elif(opc == 4):
+                Concesionario.catalogo_de_vehiculos(concesionario_vehiculo)
+                numero = int(input("Ingrese # del vehiculo que desea editar: "))
+                color = input("Ingrese color: ")
+                placa = input("Ingrese placa: ")
+                marca = input("Ingrese marca: ")
+                modelo = input("Ingrese modelo: ")
+                precio = input("Ingrese precio: ")
+                if(numero >= 1 and numero <= len(concesionario_vehiculo)):
+                    concesionario_vehiculo[numero-1].asignarDatos(color,placa,marca,modelo,precio)
+                else:
+                    print("Ingrese # de vehiculo valido!")
+
+            elif(opc == 5):
+                color = input("Ingrese color: ")
+                placa = input("Ingrese placa: ")
+                marca = input("Ingrese marca: ")
+                modelo = input("Ingrese modelo: ")
+                precio = input("Ingrese precio: ")
+                año = input("Ingrese año: ")
+                Moto.concesionario_moto.append(Moto(color,placa,marca,modelo,precio,año))  
+
+            elif(opc == 6):
+                Concesionario.catalogo_de_la_moto(Moto.concesionario_moto) 
+
+            elif(opc == 7):
+                Concesionario.catalogo_de_la_moto(Moto.concesionario_moto)
+                numero = int(input("Ingrese # de la moto que desea vender: "))
+                if(numero >= 1 and numero <= len(Moto.concesionario_moto)):
+                    Moto.concesionario_moto[numero-1].vendermoto()
+                else:
+                    print("Ingrese # de vehiculo valido!")               
+
+                
+        
+       
             else:
-                print("Ingrese # de vehiculo valido!")
-        elif(opc == 4):
-            imprimirConcesionario(concesionario)
-            numero = int(input("Ingrese # del vehiculo que desea editar: "))
-            color = input("Ingrese color: ")
-            placa = input("Ingrese placa: ")
-            marca = input("Ingrese marca: ")
-            modelo = input("Ingrese modelo: ")
-            precio = input("Ingrese precio: ")
-            if(numero >= 1 and numero <= len(concesionario)):
-                concesionario[numero-1].asignarDatos(color,placa,marca,modelo,precio)
-            else:
-                print("Ingrese # de vehiculo valido!")
+                print("Ingrese una opcion correcta y gracias")
+
+         
+
+
+            
+
+
+
+Menu.menu()
